@@ -3,22 +3,32 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Club;
+use App\Models\Invoice;
+use App\Models\Membership;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
+
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory()->count(20)->create();
+        Club::factory()->count(10)->create();
+        Membership::factory()->count(5)->create();
+        Invoice::factory()->count(10)->create();
+        $this->registerAdmin();
+    }
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+    public function registerAdmin()
+    {
+        User::create([
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('admin123'),
+            'name' => 'admin',
+            'is_admin' => 1
+        ]);
     }
 }
