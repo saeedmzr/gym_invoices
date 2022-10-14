@@ -15,7 +15,7 @@ class ClubResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'membership_cost' => $this->membership_cost,
+            'cost_per_check_in' => $this->cost_per_check_in,
         ];
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Resources\Membership\MembershipResource;
 use App\Http\Resources\SimpleResource;
 use App\Http\Resources\Auth\UserResource;
 use App\Http\Resources\Auth\AuthResource;
@@ -36,6 +37,12 @@ class AuthController extends Controller
     {
         return new UserResource(auth()->user());
     }
+    public function memberships()
+    {
+        $user = auth()->user();
+        return MembershipResource::collection($user->memberships);
+    }
+
 
     public function logout(): SimpleResource
     {

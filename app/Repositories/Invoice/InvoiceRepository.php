@@ -19,16 +19,22 @@ class InvoiceRepository extends BaseRepository
         $this->model = $model;
     }
 
-    public function createInvoiceForAUserIfNotExists(Club $club, User $user): bool|Invoice
+    public function createInvoiceForAUserIfNotExists(Club $club, User $user, $membership): bool|Invoice
     {
 
+
         $invoice = $this->model->query()
+            ->whereMonth('created_at', Carbon::now()->month)
             ->where('club_id', $club->id)
             ->where('user_id', $user->id)
-            ->where('status', 'Outstanding')
             ->first();
 
-        if (!$invoice) $invoice = $this->model->query()->create(['club_id' => $club->id, 'user_id' => $user->id]);
+        if (!$invoice) {
+            $description = 'Invoice item for ' . $user->name . ' in ' . $club->name . ' Club';
+            $invoice = $this->model->query()->create(['club_id' => $club->id, 'user_id' => $user->id, 'description' => $description]);
+            if ($membership) $invoice->update(['status' => 'Paid']);
+        }
+
         return $invoice;
     }
 

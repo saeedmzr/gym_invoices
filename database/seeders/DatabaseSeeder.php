@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         User::factory()->count(20)->create();
         Club::factory()->count(10)->create();
         Membership::factory()->count(5)->create();
-        Invoice::factory()->count(10)->create();
         $this->registerAdmin();
     }
 

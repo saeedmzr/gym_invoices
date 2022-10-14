@@ -24,21 +24,17 @@ class MembershipRepository extends BaseRepository
         $cost_per_check_in = $club->cost_per_check_in;
 
         $membership = $this->model->query()
-            ->where('start_date', '>', Carbon::now())
-            ->where('expire_at', '<', Carbon::now())
+            ->where('start_at', '<', Carbon::now())
+            ->where('expire_at', '>', Carbon::now())
             ->where('club_id', $club->id)
             ->where('user_id', $user->id)
             ->where('status', 'Active')
-            ->where('credits', '>=', 'cost_per_check_in')
+            ->where('credits', '>=', 1)
             ->first();
 
         if (!$membership) return false;
         return $membership;
     }
 
-    public function subtractFromMemberShip(Membership $membership, int $cost)
-    {
-        $membership->update(['credits' => $membership->credits - $cost]);
-    }
 
 }

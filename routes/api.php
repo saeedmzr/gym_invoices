@@ -14,11 +14,15 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('get', [AuthController::class, 'get']);
         Route::post('logout', [AuthController::class, 'logout']);
 
+
     });
 
 });
 Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('memberships', [AuthController::class, 'memberships']);
 
+    });
     Route::group(['prefix' => 'clubs',], function () {
         Route::get('/', [ClubController::class, 'index']);
         Route::post('/checkin', [ClubController::class, 'checkIn']);

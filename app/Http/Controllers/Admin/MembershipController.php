@@ -38,7 +38,7 @@ class MembershipController extends Controller
 
     public function update(CreateMembershipRequest $request, Membership $membership): MembershipResource
     {
-         $this->membershipRepository->update($membership->id, $request->validated());
+        $this->membershipRepository->update($membership->id, $request->validated());
         return new MembershipResource($membership->fresh());
     }
 
