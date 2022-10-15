@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateUserRequest;
+use App\Http\Resources\Invoice\AdminInvoiceResource;
 use App\Http\Resources\SimpleResource;
 use App\Http\Resources\Auth\UserResource;
 use App\Models\User;
@@ -17,6 +18,12 @@ class UserController extends Controller
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
+    }
+
+    public function userInvoices(User $user)
+    {
+        $invoices = $user->invoices;
+        return AdminInvoiceResource::collection($invoices);
     }
 
     public function index(): AnonymousResourceCollection

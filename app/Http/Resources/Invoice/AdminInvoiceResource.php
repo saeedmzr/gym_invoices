@@ -15,17 +15,18 @@ class AdminInvoiceResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'month' => $this->created_at->format('F'),
             'user' => new UserResource($this->user),
             'club' => new ClubResource($this->club),
             'amount_to_pay' => $this->amount,
             'total_amount' => $this->checkins()->sum('amount'),
-            'total_check_in' =>  $this->checkins()->count(),
-            'membership_check_in_count' => $this->checkins()->where('type','Membership')->count(),
-            'guest_check_in_count' => $this->checkins()->where('type','Guest')->count(),
+            'total_check_in' => $this->checkins()->count(),
+            'membership_check_in_count' => $this->checkins()->where('type', 'Membership')->count(),
+            'guest_check_in_count' => $this->checkins()->where('type', 'Guest')->count(),
             'status' => $this->status,
             'description' => $this->description,
             'created_at' => $this->created_at,
-            'invoice_lines' =>  CheckinResource::collection($this->checkins ),
+            'invoice_lines' => CheckinResource::collection($this->checkins),
 
         ];
     }

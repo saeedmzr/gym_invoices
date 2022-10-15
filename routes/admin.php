@@ -27,5 +27,6 @@ Route::group(['middleware' => 'auth:sanctum', 'admin'], function () {
     Route::apiResource('memberships', MembershipController::class);
     Route::apiResource('invoices', InvoiceController::class);
 
+    Route::get('users/invoices/{user}', [UserController::class, 'userInvoices']);
 
 });

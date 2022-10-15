@@ -58,7 +58,7 @@ class ClubService
         ]);
         $invoice->save();
 
-        $club->update(['check_in_count' => $club->check_in_count++]);
+        $club->update(['check_in_count' => $club->check_in_count + 1]);
 
 
         return ['result' => true, 'data' => $invoice];
