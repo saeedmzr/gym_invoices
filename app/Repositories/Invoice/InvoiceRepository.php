@@ -38,10 +38,5 @@ class InvoiceRepository extends BaseRepository
         return $invoice;
     }
 
-    public function userInvoices(User $user)
-    {
-        return $user->invoices();
-    }
-
 
 }

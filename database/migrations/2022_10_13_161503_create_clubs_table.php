@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->integer('cost_per_check_in')->default(1000);
+            $table->integer('check_in_count')->default(0);
             $table->timestamps();
         });
     }

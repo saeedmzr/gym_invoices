@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->foreignIdFor(\App\Models\Club::class);
             $table->integer('amount')->default(0);
             $table->longText('description')->nullable();
-            $table->json('invoice_lines')->nullable();
             $table->enum('status', ['Outstanding', 'Paid', 'Void'])->default('Outstanding');
 
             $table->timestamps();
