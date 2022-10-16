@@ -4,6 +4,7 @@ namespace App\Repositories\Checkin;
 
 use App\Models\Checkin;
 use App\Models\Club;
+use App\Models\User;
 use App\Repositories\BaseRepository;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -21,8 +22,16 @@ class CheckinRepository extends BaseRepository
     {
         return $this->model->query()
             ->where('club_id', $club_id)
-            ->whereDay('created_at', Carbon::now()->day)
+            ->whereDate('created_at', Carbon::now())
             ->first();
+    }
+
+    public function getLastCheckIn(int $user_id)
+    {
+        return $this->model->query()
+            ->whereHas('invoice', function ($q) use ($user_id) {
+                $q->where('user_id', $user_id);
+            })->latest()->first();
     }
 
 }

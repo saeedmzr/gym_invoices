@@ -40,4 +40,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Invoice::class);
     }
+
+    public function checkins(): HasMany
+    {
+        return $this->hasMany(Checkin::class);
+    }
 }
