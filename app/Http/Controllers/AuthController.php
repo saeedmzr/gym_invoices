@@ -27,7 +27,7 @@ class AuthController extends Controller
     public function login(LoginRequest $loginRequest): SimpleResource|AuthResource
     {
         $user = $this->userRepository->login($loginRequest->email, $loginRequest->password);
-        if (!$user) return new SimpleResource(['message' => 'your credentials doesnt seems to be right.', 'status' => 404]);
+        if (!$user) return new SimpleResource(['message' => 'your credentials doesnt seems to be right.', 'status' => 422]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
         return new AuthResource(['access_token' => $token]);
