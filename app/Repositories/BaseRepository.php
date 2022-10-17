@@ -21,22 +21,6 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->with($relations)->get($columns);
     }
 
-    public function paginate(int $numberPerPage = 8)
-    {
-        return $this->model->paginate($numberPerPage);
-    }
-
-    public function sortAndPaginate($model, string $sort, string $type, int $numberPerPage = 10)
-    {
-
-        $query = $model->orderby($sort, $type);
-        return $query->paginate($numberPerPage);
-    }
-
-    public function allTrashed(): Collection
-    {
-        return $this->model->onlyTrashed()->get();
-    }
 
     public function findById(
         int   $modelId,
@@ -50,17 +34,6 @@ class BaseRepository implements BaseRepositoryInterface
         return $object;
     }
 
-    public function findTrashedById(int $modelId): ?Model
-    {
-
-        return $this->model->withTrashed()->findOrFail($modelId);
-    }
-
-    public function findOnlyTrashedById(int $modelId): ?Model
-    {
-
-        return $this->model->onlyTrashed()->findOrFail($modelId);
-    }
 
     public function create(array $payload): ?Model
     {
@@ -85,13 +58,4 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->findById($modelId)->delete();
     }
 
-    public function restoreById(int $modelId): bool
-    {
-        return $this->findOnlyTrashedById($modelId)->restore();
-    }
-
-    public function permanentlyDeleteById(int $modelId): bool
-    {
-        return $this->findTrashedById($modelId)->forceDelete();
-    }
 }

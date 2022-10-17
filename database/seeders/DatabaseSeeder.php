@@ -18,16 +18,6 @@ class DatabaseSeeder extends Seeder
         User::factory()->count(20)->create();
         Club::factory()->count(10)->create();
         Membership::factory()->count(5)->create();
-        $this->registerAdmin();
     }
 
-    public function registerAdmin()
-    {
-        User::create([
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('admin123'),
-            'name' => 'admin',
-            'is_admin' => 1
-        ]);
-    }
 }

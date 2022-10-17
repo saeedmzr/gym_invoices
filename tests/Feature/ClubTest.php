@@ -76,7 +76,7 @@ class ClubTest extends TestCase
         $this->assertEquals(2, $invoice_count);
     }
 
-    public function test_if_user_check_in_with_no_credits_of_membership()
+    public function test_user_can_check_in_with_no_credits_of_membership()
     {
         $user = User::factory()->create();
         $club = Club::factory()->create();
