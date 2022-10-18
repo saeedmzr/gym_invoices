@@ -18,3 +18,4 @@ test :
 test_without_docker :
 	php artisan migrate:fresh --database=sqlite;
 	php artisan test
+

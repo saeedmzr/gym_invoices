@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link href="dist/images/logo.svg" rel="shortcut icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Saeed Mouzarmi</title>
+    <link rel="stylesheet" href="app.css"/>
+</head>
+<body>
+<div class="container grid grid-cols-12 -my-3 min-h-screen relative z-10">
+    <div class="col-span-3 bg-gray-800 py-10">
+        <a href="" class="intro-x flex items-center pl-5 mb-8">
+      <span class="hidden xl:block text-2xl ml-3">
+        Documentation </span>
+        </a>
+        <a
+                href="index.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out "
+        >Getting Started</a
+        >
+        <a
+                href="structure.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >System Design and Structure</a
+        >
+        <a
+                href="installation.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >Installation</a
+        >
+        <a
+                href="admin.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out font-medium bg-gray-900"
+        >Admin </a
+        >
+        <a
+                href="tests.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >Tests</a
+        >
+        <a
+                href="rules.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out "
+        >Rules</a
+        >
+
+    </div>
+    <div class="col-span-9 border-l border-gray-800 bg-gray-900 py-10 px-10">
+        <h1
+                class="intro-y text-2xl font-medium pb-8 mb-10 border-b border-gray-800"
+        >
+            Admin
+        </h1>
+        <h2
+                class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+        >
+            Authentication
+        </h2>
+        <div class="intro-y leading-relaxed">
+            <p>You can use a simple artisan command to create an admin user <code>php artisan admin:create</code></p>
+            <p>In your .env file, you can change admin credentials via ADMIN_EMAIL, ADMIN_PASSWORD, and ADMIN_NAME</p><br><br>
+        </div>
+
+        <h2
+                class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+        >
+            Admin Webservices
+        </h2>
+
+        <div class="intro-y leading-relaxed">
+            <ul>
+                <li class="ml-5 mt-4">
+                    <div class="flex items-center">
+                        <i  class="w-5 h-5 mr-3"></i>
+                        <span style="color: chartreuse">Users </span>
+                        : There's a crud control with users that you can control your users (CREATE, READ, UPDATE, DELETE).<span style="color: deepskyblue">admin/users </span>
+                    </div>
+                </li>
+                <li class="ml-5 mt-4">
+                    <div class="flex items-center">
+                        <i  class="w-5 h-5 mr-3"></i>
+                        <span style="color: chartreuse">Clubs </span>
+                        : There's a crud control for your clubs.<span style="color: deepskyblue">admin/clubs </span>
+                    </div>
+                </li>
+                <li class="ml-5 mt-4">
+                    <div class="flex items-center">
+                        <i  class="w-5 h-5 mr-3"></i>
+                        <span style="color: chartreuse">Memberships </span>
+                        :There's also a crud control with the membership of users.<span style="color: deepskyblue">admin/memberships </span>
+                    </div>
+                </li>
+                <li class="ml-5 mt-4">
+                    <div class="flex items-center">
+                        <i  class="w-5 h-5 mr-3"></i>
+                        <span style="color: chartreuse">Invoices </span>
+                        : You can see invoices and specific user invoices.<span style="color: deepskyblue">admin/invoices </span>
+                    </div>
+                </li>
+
+
+            </ul>
+
+<br><br>
+            <p style="color: #b5fd0b">
+                Note: For more details, you can check the postman collection
+            </p>
+
+            <br><br>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>

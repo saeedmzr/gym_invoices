@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link href="dist/images/logo.svg" rel="shortcut icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Saeed Mouzarmi</title>
+    <link rel="stylesheet" href="app.css"/>
+</head>
+<body>
+<div class="container grid grid-cols-12 -my-3 min-h-screen relative z-10">
+    <div class="col-span-3 bg-gray-800 py-10">
+        <a href="" class="intro-x flex items-center pl-5 mb-8">
+      <span class="hidden xl:block text-2xl ml-3">
+        Documentation </span>
+        </a>
+        <a
+                href="index.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out "
+        >Getting Started</a
+        >
+        <a
+                href="structure.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out font-medium bg-gray-900"
+        >System Design and Structure</a
+        >
+        <a
+                href="installation.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >Installation</a
+        >
+        <a
+                href="code.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >Explanation of codes</a
+        >
+        <a
+                href="admin.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >Admins</a
+        >
+        <a
+                href="tests.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >Tests</a>
+        <a
+                href="rules.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out "
+        >Rules</a
+        >
+
+    </div>
+    <div class="col-span-9 border-l border-gray-800 bg-gray-900 py-10 px-10">
+        <h1
+                class="intro-y text-2xl font-medium pb-8 mb-10 border-b border-gray-800"
+        >
+            System Design and Structure
+        </h1>
+        <h2
+                class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+        >
+            Database
+        </h2>
+        <div class="intro-y leading-relaxed">
+            <p class="mb-3">
+                This product contains 5 tables :
+            </p>
+            <ul>
+                <li style="color: green">1 - users</li>
+                <li style="color: green">2 - invoices</li>
+                <li style="color: green">3 - clubs</li>
+                <li style="color: green">4 - checkins</li>
+                <li style="color: green">5 - memberships</li>
+            </ul>
+            <br><br>
+        </div>
+
+        <p class="mb-3">
+            users table is where we store and fetch users' information.
+            We also fetch admin information from here.
+            since its small a scale product and time-limited admin we authorize admin with only checking `is_admin`
+            property in the users table.
+
+        </p>
+        <p class="mb-3">
+            clubs table is where we store the club's information.
+            it contains club's name,cost_per_check_in and check_in_count.
+
+        </p>
+        <p class="mb-3">
+            memberships table is where we store user memberships of clubs.
+            it contains user_id,club_id start_at,expire_at,status and credits .
+            With every successful membership check-in, credits decrease by one.
+
+        </p>
+        <p class='leading-relaxed'>
+            invoices table contains invoice's month information of a user for a certain club.
+        </p>
+        <p class='leading-relaxed'>
+            checkins table contains invoice check-ins of a user for a certain club.
+        </p>
+        <br><br>
+        <h2
+                class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+        >
+            Repository Pattern
+        </h2>
+        <div class="intro-y leading-relaxed">
+            <p class="mb-3">
+                I tried to use laravel with best practice.
+            </p>
+            <p class="mb-3">
+                I used request,resource,models,routes just as laravel best practices are .
+            </p>
+            <p class="mb-3">
+
+                The only thing that might be challenging to know as you read code is Repositories classes. </p>
+            <p class="mb-3">
+                I used repository pattern in this project and I create repository for each table.Also, i created a base
+                repository to avoid the DRY principle.
+            </p>
+
+            <br><br>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
