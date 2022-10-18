@@ -54,7 +54,7 @@ class ClubService
             'club_id' => $club->id,
             'amount' => $cost_per_check_in,
             'description' => $description,
-            'type' => ($membership ? "membership" : "guest")
+            'type' => ($membership ? "Membership" : "Guest")
         ]);
         $invoice->save();
 

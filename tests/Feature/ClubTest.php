@@ -35,6 +35,10 @@ class ClubTest extends TestCase
         $this->checkinRepository = new CheckinRepository(new Checkin());
         $this->clubService = new ClubService($this->clubRepository, $this->membershipRepository, $this->invoiceRepository, $this->checkinRepository);
     }
+    public function test_check()
+    {
+        $this->assertTrue(true);
+    }
 
     public function test_check_in_normally_should_return_status_code_200()
     {

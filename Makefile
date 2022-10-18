@@ -13,4 +13,8 @@ initialize:
 	docker-compose run php bash -c "cd /code ;php artisan migrate:fresh --seed"
 
 test :
-	docker-compose run php bash -c "cd /code ; php artisan config:cache --env=testing ;php artisan migrate:fresh;php artisan key:generate;php artisan test"
+	docker-compose run php bash -c "cd /code ;php artisan optimize:clear;php artisan migrate:fresh --database=sqlite;php artisan test"
+
+test_without_docker :
+	php artisan migrate:fresh --database=sqlite;
+	php artisan test

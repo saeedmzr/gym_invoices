@@ -20,7 +20,7 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
             MYSQL_TCP_PORT: ${DB_PORT}
         ports:
-            - '3308:${DB_PORT}'
+            - '${DB_PORT}:${DB_PORT}'
         security_opt:
             - seccomp:unconfined
         volumes:
