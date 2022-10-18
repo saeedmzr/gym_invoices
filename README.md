@@ -15,9 +15,12 @@ If you intend to do use docker for installation,you have 2 choices:
 
 
 #### First,you can use :  `docker-compose up`
+
 After that,you got 3 containers in your docker.
+
 Go to php container with `docker exec -it <container name> bash`
-run `cp .env.example .env` to create env file of product.
+
+Run `cp .env.example .env` to create env file of product.
 
 Run `php artisan key:generate` to generate a app key
 
