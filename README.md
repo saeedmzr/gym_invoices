@@ -77,5 +77,8 @@ import `virtuagym.json` from root directory file in your postman to access to we
 
 ### Documentation 
 
-there's a documentation in `/virtuagym_doc` in root directory that you can see the documentation
+there's a documentation in `/virtuagym_doc` in root directory that you can see the documentation.
 
+### Collection for webservices
+
+There's a collection `virtuagym.json` in root directory.
