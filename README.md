@@ -81,4 +81,6 @@ there's a documentation in `/virtuagym_doc` in root directory that you can see t
 
 ### Collection for webservices
 
-There's a collection `virtuagym.json` in root directory.
+There's a collection `virtuagym.json` in root directory.You can create a collection in your postman and import it.
+
+Rembmer that,if you are using docker ,select docker environment,otherwise select local environment.
