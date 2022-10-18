@@ -1,66 +1,78 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Introduction
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is simple product for managing your clubs.
+User can have memberships,and can check-in at your clubs as a membership or guest.
+This product will manage user check-in monthly invoices.
 
-## About Laravel
+## Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+There's 2 method for installation of this product. First one is using docker.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+If you intend to do use docker for installation,you have 2 choices:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### First,you can use :  `docker-compose up`
+After that,you got 3 containers in your docker.
+Go to php container with `docker exec -it <container name> bash`
+run `cp .env.example .env` to create env file of product.
 
-## Laravel Sponsors
+Run `php artisan key:generate` to generate a app key
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Run `php artisan test` to run test cases.
 
-### Premium Partners
+Run `php artisan migrate` to migrate your migration classes.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Run `php artisan db:seed` to seed your db.
 
-## Contributing
+Run `php artisan admin:create` to create a new admin.note that you can change admin credentials in env file as well.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Run `php artisan serve`
 
-## Code of Conduct
+import `virtuagym.json` from root directory file in your postman to access to webservices of product
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+#### To simplify commands that you have to run in your container i made a `Makefile`.It located in root directory.
+`MakeFile` contains 4 methods:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+`make build` : build container
 
-## License
+`make restart` : down then up container again
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+`make initialize` : initilize container and do some docker-compose commands
+
+`make test` : running tests then,run server for you
+
+`make test_without_docker` : running tests in your local machine using sqlite db
+
+
+
+
+
+##### Second method for installation is said step by step below.
+
+1 - install composer packages in root directory with this command: `composer install`
+
+2 -Create a copy of `.env.example` to `.env` , Create Database ,config it in `.env` file
+
+3 - Change admin credentials if you want to ,in `.env` file and setup your DB connection in  `.env` .
+
+4 - Test first! migrate in sqlite : `PHP artisan migrate:fresh --database=sqlite`
+
+5 - Run test cases with : `PHP artisan test`
+
+6 - After that,you should see 15 successful tests pass.Now,you should migrate in your main DB: `PHP artisan migrate`
+
+
+7 - Seed your DB : `PHP artisan db:seed`
+
+8 - Create an admin with this command : `PHP artisan admin:create` (You can change admin credentials in .env file)
+
+9 - run : `PHP artisan serve` and access to product in http://localhost:8000/
+
+### Documentation 
+
+there's a documentation in `/virtuagym_doc` in root directory that you can see the documentation
+

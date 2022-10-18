@@ -87,58 +87,44 @@ Second,you can use <span style="color: #b5fd0b">MakeFile </span> that I created 
             <br>
 
             <li>
-                2 - Create 2 databases ,one for test and one for main DB
+                2 -Create a copy of .env.example to .env , Create Database ,config it in .env file
+
             </li>
             <br>
 
             <li>
-                3 - Create 2 .env files. (.env and .env.testing) examples are in root directories.you can copy them.
-            </li>
-            <br>
-
-            <li>
-                4 - Change admin credentials if you want to ,in .env file and setup your DB connection in both .env and
+                3 - Change admin credentials if you want to ,in .env file and setup your DB connection in both .env and
                 .env.testing file.
             </li>
             <br>
 
             <li>
-                5 - Test first! so run this code to set your product in testing mode <span style="color:#6efd6e">PHP artisan config:cache --env=testing</span>
+                4 - Test first! migrate in sqlite : <span style="color:#6efd6e">PHP artisan migrate:fresh --database=sqlite</span>
+            </li><br>
+            <li>
+                5 - Run test cases with : <span style="color:#6efd6e">PHP artisan test</span>
             </li>
             <br>
 
             <li>
-                5 - Migrate your migrations classes with testing db : <span
+                6 - After that,you should see 15 successful tests pass.Now,you should migrate in your main DB: <span
                     style="color:#6efd6e">PHP artisan migrate</span>
             </li>
             <br>
 
-            <li>
+            <br>
 
-                6 - Run Test codes .it should return 15 successfully tests : <span style="color:#6efd6e">PHP artisan test</span>
+            <li>
+                7 - Seed your DB : <span style="color:#6efd6e">PHP artisan db:seed</span>
             </li>
             <br>
             <li>
-
-                7 - change your product to normal mode with : <span
-                    style="color:#6efd6e">PHP artisan optimize:clear</span>
-            </li>
-            <br>
-            <li>
-                8 - migrate in your main DB : <span style="color:#6efd6e">PHP artisan migrate</span>
-            </li>
-            <br>
-            <li>
-                8 - Seed your DB : <span style="color:#6efd6e">PHP artisan db:seed</span>
-            </li>
-            <br>
-            <li>
-                9 - Create an admin with this command : <span style="color:#6efd6e">PHP artisan admin:create </span>
+                8 - Create an admin with this command : <span style="color:#6efd6e">PHP artisan admin:create </span>
                 (You can change admin credentials in .env file)
             </li>
             <br>
             <li>
-                10 - run : <span style="color:#6efd6e">PHP artisan serve </span> and access to product in <span
+                9 - run : <span style="color:#6efd6e">PHP artisan serve </span> and access to product in <span
                     style="color:deepskyblue">http://localhost:8000/</span>
             </li>
             <br>

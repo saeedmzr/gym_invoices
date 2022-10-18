@@ -2,14 +2,13 @@
 
 namespace Tests;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesApplication,RefreshDatabase;
+    use CreatesApplication;
 
     protected function setUp(): void
     {
@@ -17,8 +16,7 @@ abstract class TestCase extends BaseTestCase
         $path = base_path() . "/database/database.sqlite";
         if (!file_exists($path))
             File::put($path, '');
-
-//        Artisan::call('migrate:fresh --database=sqlite');
+        Artisan::call('migrate:fresh --database=sqlite');
 
     }
 }
