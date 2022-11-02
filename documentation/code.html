@@ -1,0 +1,254 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link href="dist/images/logo.svg" rel="shortcut icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Saeed Mouzarmi</title>
+    <link rel="stylesheet" href="app.css"/>
+</head>
+<body>
+<div class="container grid grid-cols-12 -my-3 min-h-screen relative z-10">
+    <div class="col-span-3 bg-gray-800 py-10">
+        <a href="" class="intro-x flex items-center pl-5 mb-8">
+      <span class="hidden xl:block text-2xl ml-3">
+        Documentation </span>
+        </a>
+        <a
+                href="index.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out "
+        >Getting Started</a
+        >
+        <a
+                href="structure.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out "
+        >System Design and Structure</a
+        >
+        <a
+                href="installation.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >Installation</a
+        >
+        <a
+                href="code.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out font-medium bg-gray-900"
+        >Explanation of codes</a
+        >
+        <a
+                href="admin.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >Admins</a
+        >
+        <a
+                href="tests.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >Tests</a>
+        <a
+                href="rules.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out "
+        >Rules</a
+        >
+
+    </div>
+    <div class="col-span-9 border-l border-gray-800 bg-gray-900 py-10 px-10">
+        <h1
+                class="intro-y text-2xl font-medium pb-8 mb-10 border-b border-gray-800"
+        >
+            Explanation of codes
+        </h1>
+        <p>
+            In this product ,i tried to write clean codes and use best practices .having said that , i will expalin more
+            about some of them that are chalenging to read.
+        </p>
+        <br><br>
+        <h2
+                class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+        >
+           Check in
+        </h2>
+        <div class="intro-y leading-relaxed">
+            <p class="mb-3">
+                The most important web service in this product is check-in.
+                Endpoint of it is : <span style="color: deepskyblue"><b> /clubs/checkin </b></span>
+            </p>
+
+        </div>
+        <br><br>
+        <h2
+                class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+        >
+            User webservice
+        </h2>
+        <div class="intro-y leading-relaxed">
+            <p class="mb-3">
+                Other webservices for user is not as important as check-in but here they are :
+            </p>
+            <ul>
+                <li><span style="color: chartreuse">Login </span>: to login user. <b style="color: deepskyblue">/auth/login</b></li>
+                <li><span style="color: chartreuse">Logout </span> : to Logout user.  <b style="color: deepskyblue">/auth/logout</b></li>
+                <li><span style="color: chartreuse">Get </span> : authenticated user can access to it's own data. <b style="color: deepskyblue">/auth/get</b></li>
+                <li><span style="color: chartreuse">Memberships </span> : for user to get it's own membership accounts. <b style="color: deepskyblue">/user/memberships</b></li>
+                <li><span style="color: chartreuse">Clubs </span> : get Clubs data. <b style="color: deepskyblue">/clubs</b></li>
+            </ul>
+
+        </div>
+        <br><br>
+        <h2
+                class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+        >
+            Admin Parts
+        </h2>
+        <div class="intro-y leading-relaxed">
+            <p class="mb-3">
+                admin routes are located in routes/admin.php.i config RouteServiceProvider to set that route file.
+                admin controller located in controllers/Admin.
+                webservices are clean, have request and response classes.
+            </p>
+
+        </div>
+        <br><br>
+        <h2
+                class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+        >
+            Repositories
+        </h2>
+        <p class="mb-3">
+            As i said , i used repository pattern for this product.it located in App\Repositories directory.
+            theres a Base repository and Base repository interface class.
+            they contains these methods :
+        </p>
+        <ul>
+            <li style="color: #b5fd0b">1 - public function all(array $columns = ['*'], array $relations = []);</li>
+            <li style="color: #b5fd0b ">2 - public function findById(int $modelId, array $columns = ['*'], array $relations = [], array $appends
+                = [] )
+            </li>
+            <li style="color: #b5fd0b ">3 - public function create(array $payload)</li>
+            <li style="color: #b5fd0b ">4 - public function update(int $modelId, array $payload)</li>
+            <li style="color: #b5fd0b ">5 - public function deleteById(int $modelId): bool;</li>
+        </ul>
+        <br><br>
+
+        <h3><span style="color:green"> UserRepository </span> <b>login($phone , $password)</b></h3>
+        <br>
+        <p class="mb-3">
+            this method is for login a user .
+        </p>
+        <br>
+
+        <h3><span style="color:chartreuse"> MembershipRepository </span> <b>getAvailableMembership(Club $club, User
+            $user)</b></h3>
+        <br>
+        <p class="mb-3">
+            You will pass a club and user to this method and it checks if this user has a valid
+            membership in the desired club or not.
+
+        </p>
+        <br>
+        <h3><span style="color:chartreuse"> InvoiceRepository </span> <b>createInvoiceForAUserIfNotExists(Club $club, User
+            $user, $membership)</b></h3>
+        <br>
+        <p class="mb-3">
+            This method checks if a user doesn't have an invoice for this month or not.if it's not try to create one for
+            it.
+        </p>
+        <br>
+        <h3><span style="color:chartreuse"> CheckinRepository </span> <b>todayCheckIn($user_id, $club_id)</b></h3>
+        <br>
+        <p class="mb-3">
+            This one checks if a user checked-in at a certain club or not.
+        </p>
+        <br>
+
+        <h3><span style="color:chartreuse"> CheckinRepository </span> <b>getLastCheckIn(int $user_id)</b></h3>
+        <br>
+        <p class="mb-3">
+            With this method, you can get the last check-in of a user in any club.
+        </p>
+        <br>
+        <br><br>
+
+        <h2
+                class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+        >
+            Services
+        </h2>
+        <p class="mb-3">
+            The only service that we have in this product is called ClubService and it has only one method: check-in.
+            this is the most important thing about this product as well.
+
+        </p>
+        <p class="mb-3" style="color:deepskyblue">
+            There is 4 DI in the constructure of this class :
+        </p>
+        <ul>
+            <li style="color: chartreuse">ClubRepository</li>
+            <li style="color: chartreuse">MembershipRepository</li>
+            <li style="color: chartreuse">InvoiceRepository</li>
+            <li style="color: chartreuse">CheckinRepository</li>
+        </ul>
+        <br><br>
+        <pre class="mb-3">In line 34, we have :
+
+        <span style="color:deepskyblue">
+$check_in_result = $this->checkinRepository->todayCheckIn($user->id, $club_id);
+        </span>
+
+This is for checking if a user can't check in twice a day. if this one gets an error we return an error,
+otherwise, we continue.
+
+
+In line 37 we try to get the desired club :
+        <span style="color:deepskyblue">
+$club = $this->clubRepository->findById($club_id);
+        </span>
+
+and in the next line, we get its cost per check-in.
+In line 40, we try to get an available membership if there's any :
+    <span style="color:deepskyblue">
+$membership = $this->membershipRepository->getAvailableMembership($club, $user);
+    </span>
+
+and in the next line we create an invoice record if it's not created this month:
+
+            <span style="color:deepskyblue">
+$invoice = $this->invoiceRepository->createInvoiceForAUserIfNotExists($club, $user, $membership);
+            </span>
+
+After that, we check if membership was available we use this :
+
+            <span style="color:deepskyblue">
+if ($membership) {
+    $membership->update(['credits' => $membership->credits - 1]);
+    $description = 'Checked in as a membership';
+}
+            </span>
+
+            And if its not we use :
+
+            <span style="color:deepskyblue">
+else {
+    $invoice->amount = $invoice->amount + $cost_per_check_in;
+    $invoice->status = 'Outstanding';
+    $description = 'Checked in as a guest';
+}
+            </span>
+
+Then we create a checkin record for that attempt :
+
+            <span style="color:deepskyblue">
+
+$invoice->checkins()->create([
+    'club_id' => $club->id,
+    'amount' => $cost_per_check_in,
+    'description' => $description,
+    'type' => ($membership ? "membership" : "guest")
+]);
+
+            </span>
+
+In the end of this method we save invoice,increments club checkin count and return success with data.
+        </pre>
+    </div>
+
+</div>
+</body>
+</html>

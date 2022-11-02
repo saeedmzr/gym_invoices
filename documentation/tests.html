@@ -1,0 +1,210 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link href="dist/images/logo.svg" rel="shortcut icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Saeed Mouzarmi</title>
+    <link rel="stylesheet" href="app.css"/>
+</head>
+<body>
+<div class="container grid grid-cols-12 -my-3 min-h-screen relative z-10">
+    <div class="col-span-3 bg-gray-800 py-10">
+        <a href="" class="intro-x flex items-center pl-5 mb-8">
+      <span class="hidden xl:block text-2xl ml-3">
+        Documentation </span>
+        </a>
+        <a
+                href="index.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out "
+        >Getting Started</a
+        >
+        <a
+                href="structure.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >System Design and Structure</a
+        >
+        <a
+                href="installation.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out"
+        >Installation</a
+        >
+        <a
+                href="admin.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out "
+        >Admin </a
+        >
+        <a
+                href="tests.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out font-medium bg-gray-900"
+        >Tests</a
+        >
+        <a
+                href="rules.html"
+                class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out "
+        >Rules</a
+        >
+
+    </div>
+    <div class="col-span-9 border-l border-gray-800 bg-gray-900 py-10 px-10">
+        <h1
+                class="intro-y text-2xl font-medium pb-8 mb-10 border-b border-gray-800"
+        >
+            Tests
+        </h1>
+
+        <div class="intro-y leading-relaxed">
+            <p>Tests contains 3 diffrents test cases :</p>
+            <p>1 - Login Tests</p>
+            <p>2 - Membership Tests</p>
+            <p>3 - Club Tests</p>
+
+        </div>
+        <br><br>
+        <h2
+                class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+        >
+            Login Tests
+        </h2>
+
+        <div class="intro-y leading-relaxed">
+            <ul>
+                <li class="ml-5 mt-4">
+                    <p class="mb-3">1 - <span
+                            style="color:#3ff53f"> user can login with_correct credentials : </span></p>
+                    <p>This method test user login with correct credentials and return success if its correct.</p>
+                </li>
+
+                <li class="ml-5 mt-4">
+                    <p class="ml-5 mt-4">2 - <span
+                            style="color:#ff8282"> user cannot login with incorrect password :</span></p>
+                    <p>This method with test user login with wrong credentials and return 422 status code.</p>
+        </li>
+        </ul>
+
+        <br><br>
+    </div>
+
+    <h2
+            class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+    >
+        Membership Tests
+    </h2>
+
+    <div class="intro-y leading-relaxed">
+        <ul>
+            <li class="ml-5 mt-4">
+                <p class="mb-3">1 - <span
+                        style="color:#ff8282"> membership doesnt work if it pass expire time  :</span></p>
+
+                <p>In this method we will check if a membership pass expire time it doesnt work and user cannot
+                    use it.</p>
+            </li>
+
+            <li class="ml-5 mt-4">
+                <p class="mb-3">2 - <span style="color:#ff8282"> membership doesnt work if it got canceled :</span></p>
+                <p>This method will test membership that got canceled cant be used.</p>
+            </li>
+            <li class="ml-5 mt-4">
+                <p class="mb-3">3 - <span
+                        style="color:#ff8282">membership doesnt work if it doesnt have any credits:</span></p>
+
+                <p>You can check-in to club as a membership ,if your membership as a account.this method will
+                    test that you cant use a membership that has zero credits.</p>
+            </li>
+            <li class="ml-5 mt-4">
+                <p class="mb-3">4 - <span style="color:#3ff53f">membership work : </span></p>
+                <p>This method will test a available membership with credits,and return status code 200.</p>
+            </li>
+        </ul>
+
+        <br><br>
+    </div>
+
+
+        <h2
+                class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800"
+        >
+            Club Tests
+        </h2>
+
+        <div class="intro-y leading-relaxed">
+            <ul>
+                <li class="ml-5 mt-4">
+                    <p class="mb-3">1 - <span
+                            style="color:#3ff53f"> check in normally should return status code 200 :</span></p>
+
+                    <p>This will test your normal check-in at a club .</p>
+                </li>
+
+                <li class="ml-5 mt-4">
+                    <p class="mb-3">2 - <span style="color:#3ff53f"> invoice get create first time that user check in a club
+ :</span></p>
+                    <p>Test invoice record will create successfully the first time you check-in at a club .</p>
+                </li>
+                <li class="ml-5 mt-4">
+                    <p class="mb-3">3 - <span
+                            style="color:#3ff53f">if user check-in in two different clubs then he got two invoice records:</span></p>
+
+                    <p>
+                        Invoice records are unique for user-club. for example if you check-in at 2 different clubs in a month, you got 2 invoice records.
+                    </p>
+                </li>
+                <li class="ml-5 mt-4">
+                    <p class="mb-3">4 - <span
+                            style="color:#3ff53f"> user can check in with no credits of membership:</span></p>
+
+                    <p>
+                        If a user check-in with no credits in his membership account, he should check-in but he will check-in as a GUEST.
+                    </p>
+                </li>
+                <li class="ml-5 mt-4">
+                    <p class="mb-3">6 - <span
+                            style="color: firebrick">invoice total amount should return exactly what we except for guest:</span></p>
+
+                    <p>
+                        In this test we want to test a user that check-in as a club. first, we create a club and check in at it with a user 4 times. then we test the invoice amount should equal to cost_per_check_in from that club multiply 4.                    </p>
+                </li>
+                <li class="ml-5 mt-4">
+                    <p class="mb-3">7 - <span
+                            style="color:#3ff53f">invoice total amount should return exactly what we except for membership:</span></p>
+
+                    <p>
+                        If a user check-in with only membership status, then in the invoice amount would be equal to zero since he doesn't have to pay anything
+                    </p>
+                </li>
+                <li class="ml-5 mt-4">
+                    <p class="mb-3">8 - <span
+                            style="color:#3ff53f">invoice total amount should return exactly what we except for membership if it ends between:</span></p>
+
+                    <p>
+                        One of the most challenging parts of the product is when the user check-in with both statuses: membership and guest. for example, imagine a user has 2 credits in his membership account .then he can check-in 2 times with that.
+                        after that he wants to check-in 2 more times .but he doesn't have any credits left. the amount of invoice in this scenario should be the club's cost per check-in multiply 2.
+                    </p>
+                </li>
+                <li class="ml-5 mt-4">
+                    <p class="mb-3">9 - <span
+                            style="color:#3ff53f">invoice get created again if month passes:</span></p>
+
+                    <p>
+                        If you check-in after a month in any club then you have 2 records in the invoices table.
+                    </p>
+                </li>
+                <li class="ml-5 mt-4">
+                    <p class="mb-3">10 - <span
+                            style="color:#ff8282">cant check in twice a day in same club:</span></p>
+
+                    <p>
+                        You can't check in at a certain club twice a day.
+                    </p>
+                </li>
+
+            </ul>
+
+            <br><br>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>
